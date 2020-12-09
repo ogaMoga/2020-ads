@@ -5,7 +5,7 @@ import ru.mail.polis.ads.SolveTemplate;
 import java.io.*;
 import java.util.*;
 
-public final class Task3 {
+public final class Task3{
 
 
     private static void solve(final FastScanner in, final PrintWriter out) {
@@ -17,7 +17,7 @@ public final class Task3 {
         for (int i = 0; i < n + 1; i++) {
             Arrays.fill(cost[i], 30000);
         }
-        Arrays.fill(distance, 30000);
+        Arrays.fill(distance, 100000);
         int[] last = new int[n + 1];
         last[start] = -1;
         Map<Integer, Set<Integer>> graph = new HashMap<>();
@@ -41,11 +41,8 @@ public final class Task3 {
             }
         }
 
-        if (cost[1][1] < distance[1])
-            distance[1] = cost[1][1];
-
         for (int i = 1; i <= n; i++) {
-            System.out.print(distance[i] + " ");
+            System.out.print(Math.min(distance[i], 30000) + " ");
         }
 
     }
